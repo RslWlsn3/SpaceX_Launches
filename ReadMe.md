@@ -14,3 +14,7 @@
  - Use a std::map<std::string, LaunchData*>
 
  - Iterate over the collection and output some basic information for each launch to std::cout
+
+# Error
+/home/cmote/spacexlaunches/main.cpp:25:13: error: ‘json’ has not been declared
+   25 |   auto j3 = json::parse(launch_json);

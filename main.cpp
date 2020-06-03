@@ -23,7 +23,7 @@ std::string exec(const char* cmd) {
 
 int main(){
   std::string launch_json = exec("curl --location --request GET 'https://api.spacexdata.com/v3/launches/upcoming'");
-  auto j3 = json::parse(launch_json);
+  auto j3 = json::parse(launch_json); // error: ‘json’ has not been declared
   std::cout<<"worked";
 }
 
