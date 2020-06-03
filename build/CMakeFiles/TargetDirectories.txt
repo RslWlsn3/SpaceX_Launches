@@ -1,0 +1,13 @@
+/home/cmote/spacexlaunches/build/CMakeFiles/install/strip.dir
+/home/cmote/spacexlaunches/build/CMakeFiles/install/local.dir
+/home/cmote/spacexlaunches/build/CMakeFiles/install.dir
+/home/cmote/spacexlaunches/build/CMakeFiles/list_install_components.dir
+/home/cmote/spacexlaunches/build/CMakeFiles/rebuild_cache.dir
+/home/cmote/spacexlaunches/build/CMakeFiles/edit_cache.dir
+/home/cmote/spacexlaunches/build/CMakeFiles/SpaceX.dir
+/home/cmote/spacexlaunches/build/json/CMakeFiles/install/strip.dir
+/home/cmote/spacexlaunches/build/json/CMakeFiles/install/local.dir
+/home/cmote/spacexlaunches/build/json/CMakeFiles/edit_cache.dir
+/home/cmote/spacexlaunches/build/json/CMakeFiles/install.dir
+/home/cmote/spacexlaunches/build/json/CMakeFiles/list_install_components.dir
+/home/cmote/spacexlaunches/build/json/CMakeFiles/rebuild_cache.dir
