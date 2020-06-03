@@ -6,6 +6,7 @@
 #include <array>
 #include <nlohmann/json.hpp>
 
+using json = nlohmann::json;
 
 std::string exec(const char* cmd) {
     std::array<char, 128> buffer;
