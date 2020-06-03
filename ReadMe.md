@@ -1,6 +1,6 @@
-##SpaceX Launches Mini-Project
+## SpaceX Launches Mini-Project
 
-#Goals
+# Goals
  - https://docs.spacexdata.com/?version=latest
 
  - Explore hitting the API using Postman
