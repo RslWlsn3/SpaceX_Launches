@@ -1,1 +1,0 @@
-/usr/bin/c++     CMakeFiles/SpaceX.dir/main.cpp.o  -o SpaceX 

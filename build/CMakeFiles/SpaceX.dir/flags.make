@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/cmote/spacexlaunches/json/single_include 
+CXX_INCLUDES = -I/mnt/c/Users/connor.mote/dev/spacexlaunches/json/single_include 
 

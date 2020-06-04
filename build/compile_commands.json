@@ -1,7 +1,7 @@
 [
 {
-  "directory": "/home/cmote/spacexlaunches/build",
-  "command": "/usr/bin/c++   -I/home/cmote/spacexlaunches/json/single_include  -g   -o CMakeFiles/SpaceX.dir/main.cpp.o -c /home/cmote/spacexlaunches/main.cpp",
-  "file": "/home/cmote/spacexlaunches/main.cpp"
+  "directory": "/mnt/c/Users/connor.mote/dev/spacexlaunches/build",
+  "command": "/usr/bin/c++   -I/mnt/c/Users/connor.mote/dev/spacexlaunches/json/single_include  -g   -o CMakeFiles/SpaceX.dir/main.cpp.o -c /mnt/c/Users/connor.mote/dev/spacexlaunches/main.cpp",
+  "file": "/mnt/c/Users/connor.mote/dev/spacexlaunches/main.cpp"
 }
 ]

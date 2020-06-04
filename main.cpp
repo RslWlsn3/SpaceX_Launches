@@ -6,7 +6,7 @@
 #include <array>
 #include <nlohmann/json.hpp>
 
-using json = nlohmann::json;
+//using json = nlohmann::json;
 
 std::string exec(const char* cmd) {
     std::array<char, 128> buffer;
@@ -23,7 +23,7 @@ std::string exec(const char* cmd) {
 
 int main(){
   std::string launch_json = exec("curl --location --request GET 'https://api.spacexdata.com/v3/launches/upcoming'");
-  auto j3 = json::parse(launch_json); // error: ‘json’ has not been declared
-  std::cout<<"worked";
+  auto j3 = nlohmann::json::parse(launch_json); 
+  std::cout<<"worked!!!";
 }
 
