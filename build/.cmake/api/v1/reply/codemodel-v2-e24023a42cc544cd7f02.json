@@ -13,7 +13,7 @@
 					"hasInstallRule" : true,
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.12"
+						"string" : "3.7.2"
 					},
 					"projectIndex" : 0,
 					"source" : ".",

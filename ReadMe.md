@@ -16,8 +16,29 @@
  - Iterate over the collection and output some basic information for each launch to std::cout
 
 # Error
-/home/cmote/spacexlaunches/main.cpp:25:13: error: ‘json’ has not been declared
-   25 |   auto j3 = json::parse(launch_json);
+/home/cmote/spacexlaunches/main.cpp:25:13: error: ‘json’ has not been declared\
+25 |   auto j3 = json::parse(launch_json);
 
 # Solution
-I deleted all cmake files and started from scratch. When I would change line 25 and run "cmake --build ." the error would show that line 25 hadn't changed. I'm not sure what causes this but it might have to do with cmake caching.   
+I deleted all cmake files and started from scratch. When I would change line 25 and run "cmake --build ." the error would show that line 25 hadn't changed. I'm not sure what causes this but it might have to do with cmake caching.  
+
+# Steps to run
+You may need to git clone https://github.com/nlohmann/json.git and get rid of the existing json folder since it doesn't seem like bitbucket handling the library correctly.  
+
+# Example output
+mission_name: ANASIS-II\
+  -  flight_number: 105\
+  -  launch_year: 2020\
+  -  launch_date_local: 2020-06-30T20:00:00-04:00\
+------------------------------\
+mission_name: CRS-21\
+  -  flight_number: 106\
+  -  launch_year: 2020\
+  -  launch_date_local: 2020-10-19T20:00:00-04:00\
+------------------------------\
+mission_name: GPS III SV03 (Columbus)\
+  -  flight_number: 98\
+  -  launch_year: 2020\
+  -  launch_date_local: 2020-06-30T15:55:00-04:00\
+------------------------------\
+ect...\
