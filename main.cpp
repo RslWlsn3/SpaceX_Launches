@@ -9,16 +9,7 @@
 
 using json = nlohmann::json;
 
-struct LaunchData{
-    int flight_number;
-    std::string launch_year;
-    std::string launch_date_local;
-    LaunchData(int fn, std::string yr, std::string ldl): flight_number(fn), launch_year(yr), launch_date_local(ldl)
-    {        
-    }
-    
-};
-
+//perform cmd command return result
 std::string exec(const char* cmd) {
     std::array<char, 128> buffer;
     std::string result;
@@ -32,6 +23,18 @@ std::string exec(const char* cmd) {
     return result;
 }
 
+//Store launch data from SpaceX api 
+struct LaunchData{
+    int flight_number;
+    std::string launch_year;
+    std::string launch_date_local;
+    LaunchData(int fn, std::string yr, std::string ldl): flight_number(fn), launch_year(yr), launch_date_local(ldl)
+    {        
+    }
+    
+};
+
+//creates and returns and std::map with the keys being the name of the mission and vaules being a LaunchData obj. 
 std::map<std::string, LaunchData*> createMap(const json &j){    
     std::map<std::string, LaunchData*> launchMap;    
       for (auto& element : j) {  
@@ -42,7 +45,7 @@ std::map<std::string, LaunchData*> createMap(const json &j){
 return launchMap;
 }
 
-
+//Display stored launch data
 void printLaunchData(std::map<std::string, LaunchData*> &launchMap){
     for (std::map<std::string, LaunchData*>::iterator it = launchMap.begin();it != launchMap.end();it++)
         {
@@ -55,6 +58,7 @@ void printLaunchData(std::map<std::string, LaunchData*> &launchMap){
         }
 }
 
+//delete heap allocated LaunchData objs
 void cleanUp(std::map<std::string, LaunchData*> launchMap)
 {
     for (std::map<std::string, LaunchData*>::iterator it = launchMap.begin();it != launchMap.end();it++)
