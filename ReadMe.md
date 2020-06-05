@@ -1,6 +1,6 @@
-## SpaceX Launches Mini-Project
+# SpaceX Launches Mini-Project
 
-# Goals
+## Goals
  - https://docs.spacexdata.com/?version=latest
 
  - Explore hitting the API using Postman
@@ -15,17 +15,10 @@
 
  - Iterate over the collection and output some basic information for each launch to std::cout
 
-# Error
-/home/cmote/spacexlaunches/main.cpp:25:13: error: ‘json’ has not been declared
-25 |   auto j3 = json::parse(launch_json);
+## Steps to run
+You may need to git clone https://github.com/nlohmann/json.git and get rid of the existing json folder since it doesn't seem like bitbucket is handling the library correctly.  
 
-# Solution
-I deleted all cmake files and started from scratch. When I would change line 25 and run "cmake --build ." the error would show that line 25 hadn't changed. I'm not sure what causes this but it might have to do with cmake caching.  
-
-# Steps to run
-You may need to git clone https://github.com/nlohmann/json.git and get rid of the existing json folder since it doesn't seem like bitbucket handling the library correctly.  
-
-# Example output
+## Example output
 mission_name: ANASIS-II
   -  flight_number: 105
   -  launch_year: 2020

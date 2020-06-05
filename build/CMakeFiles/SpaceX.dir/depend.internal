@@ -3,4 +3,5 @@
 
 CMakeFiles/SpaceX.dir/main.cpp.o
  ../json/single_include/nlohmann/json.hpp
+ ../src/SpaceXlaunch/SpaceXLaunches.hpp
  /mnt/c/Users/connor.mote/dev/spacexlaunches/main.cpp

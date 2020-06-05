@@ -316,7 +316,7 @@ SpaceX_BINARY_DIR:STATIC=/mnt/c/Users/connor.mote/dev/spacexlaunches/build
 SpaceX_SOURCE_DIR:STATIC=/mnt/c/Users/connor.mote/dev/spacexlaunches
 
 //Value Computed by CMake
-nlohmann_json_BINARY_DIR:STATIC=/mnt/c/Users/connor.mote/dev/spacexlaunches/build/json
+nlohmann_json_BINARY_DIR:STATIC=/mnt/c/Users/connor.mote/dev/spacexlaunches/build/src/$(CMAKE_CURRENT_SOURCE_DIR)
 
 //Value Computed by CMake
 nlohmann_json_SOURCE_DIR:STATIC=/mnt/c/Users/connor.mote/dev/spacexlaunches/json
@@ -446,7 +446,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=2
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=3
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

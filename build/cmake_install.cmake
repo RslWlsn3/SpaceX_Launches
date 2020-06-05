@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/mnt/c/Users/connor.mote/dev/spacexlaunches/build/json/cmake_install.cmake")
+  include("/mnt/c/Users/connor.mote/dev/spacexlaunches/build/src/cmake_install.cmake")
 
 endif()
 
