@@ -1551,7 +1551,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/usr/bin/cmake --build . --config \"${CTEST_CONFIGURATION_TYPE}\" -- -i"
+			"value" : "/usr/bin/cmake --build . --config \"${CTEST_CONFIGURATION_TYPE}\""
 		},
 		{
 			"name" : "MEMORYCHECK_COMMAND",
