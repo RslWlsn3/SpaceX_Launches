@@ -38,5 +38,6 @@ pipelines:
             - cd cmake-$version.$build/
             - ./bootstrap
             - make -j$(nproc)
+            - apt-get install sudo -y
             - sudo make install
             - cmake --version
