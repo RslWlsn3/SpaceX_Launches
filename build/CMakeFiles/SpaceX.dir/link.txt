@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/SpaceX.dir/main.cpp.o  -o SpaceX  src/libSpaceXLaunch.a 
+/usr/bin/c++  -g  -rdynamic CMakeFiles/SpaceX.dir/main.cpp.o  -o SpaceX  src/libSpaceXLaunch.a 
