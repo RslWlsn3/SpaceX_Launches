@@ -30,7 +30,7 @@ pipelines:
             # - make
 
             - version=3.8
-            - build=3
+            - build=0
             - mkdir ~/temp
             - cd ~/temp
             - wget https://cmake.org/files/v$version/cmake-$version.$build.tar.gz
