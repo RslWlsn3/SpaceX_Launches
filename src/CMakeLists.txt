@@ -5,7 +5,7 @@ add_subdirectory(../json $(CMAKE_CURRENT_SOURCE_DIR))
 add_library(
     SpaceXLaunch
     #${CMAKE_CURRENT_SOURCE_DIR}/SpaceXlaunch/SpaceXLaunches.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/SpaceXlaunch/SpaceXLaunches.cpp
+    SpaceXlaunch/SpaceXLaunches.cpp
 )
 
 target_link_libraries(SpaceXLaunch PUBLIC nlohmann_json::nlohmann_json)
