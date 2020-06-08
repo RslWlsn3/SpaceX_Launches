@@ -13,7 +13,7 @@
 					"hasInstallRule" : true,
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.8"
+						"string" : "3.2.2"
 					},
 					"projectIndex" : 0,
 					"source" : ".",
@@ -31,7 +31,7 @@
 					"hasInstallRule" : true,
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.8"
+						"string" : "3.2.2"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,
@@ -46,7 +46,7 @@
 					"hasInstallRule" : true,
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.8"
+						"string" : "3.2.2"
 					},
 					"parentIndex" : 1,
 					"projectIndex" : 1,
@@ -345,7 +345,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "SpaceX::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-SpaceX-Debug-b64ffb0b195b33cd08ce.json",
+					"jsonFile" : "target-SpaceX-Debug-b01f6e9286611d6c9d05.json",
 					"name" : "SpaceX",
 					"projectIndex" : 0
 				},
