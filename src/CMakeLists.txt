@@ -1,6 +1,6 @@
 set(JSON_BuildTests OFF CACHE INTERNAL "")
 
-add_subdirectory(/mnt/c/Users/connor.mote/dev/spacexlaunches/json $(CMAKE_CURRENT_SOURCE_DIR))
+add_subdirectory(../json $(CMAKE_CURRENT_SOURCE_DIR))
 
 add_library(
     SpaceXLaunch
