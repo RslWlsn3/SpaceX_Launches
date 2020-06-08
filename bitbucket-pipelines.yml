@@ -9,10 +9,10 @@ pipelines:
   default:
     - step:
         script: # Modify the commands below to build your repository.
-          - apt-get update && apt-get -y install cmake
-          - cmake -B build .
-          - cmake --build /opt/atlassian/pipelines/agent/build --config Debug --target all -- -j 4
-          - /opt/atlassian/pipelines/agent/build/spacex-launch-parser-test/spacex-launch-parser-test
+          # - apt-get update && apt-get -y install cmake
+          # - cmake -B build .
+          # - cmake --build /opt/atlassian/pipelines/agent/build --config Debug --target all -- -j 4
+          # - /opt/atlassian/pipelines/agent/build/spacex-launch-parser-test/spacex-launch-parser-test
             
           # - apt-get update -qq
             # - apt-get install software-properties-common -y
@@ -28,3 +28,15 @@ pipelines:
             # - cmake ..
             # # Build the project.
             # - make
+
+            - version=3.8
+            - build=3
+            - mkdir ~/temp
+            - cd ~/temp
+            - wget https://cmake.org/files/v$version/cmake-$version.$build.tar.gz
+            - tar -xzvf cmake-$version.$build.tar.gz
+            - cd cmake-$version.$build/
+            - ./bootstrap
+            - make -j$(nproc)
+            - sudo make install
+            - cmake --version
