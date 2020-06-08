@@ -4,7 +4,7 @@ add_subdirectory(../json $(CMAKE_CURRENT_SOURCE_DIR))
 
 add_library(
     SpaceXLaunch
-    ${CMAKE_CURRENT_SOURCE_DIR}/SpaceXlaunch/SpaceXLaunches.hpp
+    #${CMAKE_CURRENT_SOURCE_DIR}/SpaceXlaunch/SpaceXLaunches.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/SpaceXlaunch/SpaceXLaunches.cpp
 )
 
