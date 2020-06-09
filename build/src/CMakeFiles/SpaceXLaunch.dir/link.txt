@@ -1,2 +1,0 @@
-/usr/bin/ar qc libSpaceXLaunch.a  CMakeFiles/SpaceXLaunch.dir/SpaceXlaunch/SpaceXLaunches.cpp.o
-/usr/bin/ranlib libSpaceXLaunch.a
