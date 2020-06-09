@@ -4,7 +4,7 @@
 #include <stdexcept>
 #include <string>
 #include <array>
-#include "SpaceXlaunch/SpaceXLaunches.hpp"
+#include "SpaceXLaunches.hpp"
 
 const char* UpcomingLaunchesCmd = "curl --location --request GET 'https://api.spacexdata.com/v3/launches/upcoming'";
 
