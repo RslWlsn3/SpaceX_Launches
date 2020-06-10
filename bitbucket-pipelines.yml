@@ -17,4 +17,4 @@ pipelines:
           - apt-get update && apt-get -y install cmake
           - cmake -B/opt/atlassian/pipelines/agent/build .
           - cmake --build /opt/atlassian/pipelines/agent/build --config Debug --target all -- -j 4
-          #- /opt/atlassian/pipelines/agent/build/spacex-launch-parser-test/spacex-launch-parser-test
+          - /opt/atlassian/pipelines/agent/build/test/SpaceXLaunch_unit_tests

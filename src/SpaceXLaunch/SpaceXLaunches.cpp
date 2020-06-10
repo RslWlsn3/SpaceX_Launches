@@ -1,6 +1,7 @@
 //SpaceXLaunches.cpp
 
 #include "SpaceXLaunches.hpp"
+#include <stdlib.h> 
 
 namespace SpaceX
 {
@@ -9,12 +10,23 @@ namespace SpaceX
     }    
 
     //takes in parsed json data from api call and poplulates a std::map. 
-    SpaceXLaunches::SpaceXLaunches(const json &j) {
-        for (auto& element : j) {  
-            auto el = element["tentative_max_precision"];            
-            LaunchData* l = new LaunchData(element["flight_number"],element["launch_year"],element["launch_date_local"]);          
-            launchMap[element["mission_name"]] = l;
-            }            
+    SpaceXLaunches::SpaceXLaunches(const json &j) { 
+        if (j.is_array()){
+            for (auto& element : j) {                  
+                auto el1 = element["mission_name"];          
+                LaunchData* ld = new LaunchData(element["flight_number"],element["launch_year"],element["launch_date_local"]);          
+                launchMap[element["mission_name"]] = ld;
+            }      
+        }     
+        else if (j.is_object()){
+            LaunchData* ld = new LaunchData(j.at("flight_number"),j.at("launch_year"),j.at("launch_date_local"));          
+            launchMap[j.at("mission_name")] = ld;
+        } 
+        else {
+            std::cout<<"Error processing json obj\n";
+            exit (EXIT_FAILURE);
+        } 
+           
     }
 
     //Display stored launch data
