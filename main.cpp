@@ -25,6 +25,7 @@ std::string exec(const char* cmd) {
 int main(){
     std::string launch_json = exec(UpcomingLaunchesCmd);  
     auto j = json::parse(launch_json); 
-    SpaceX::SpaceXLaunches launches(j);
+    //SpaceX::SpaceXLaunches launches(j);
+    SpaceX::SpaceXLaunchesSmartPointer launches(j);
     launches.displayLaunchData();    
 }
