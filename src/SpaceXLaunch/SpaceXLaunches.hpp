@@ -7,8 +7,6 @@
 #include <memory>
 #include <stdlib.h>
 
-using json = nlohmann::json;
-
 namespace SpaceX
 {
     struct LaunchData
@@ -26,7 +24,7 @@ namespace SpaceX
 
     public:
         //takes in parsed json data from api call and poplulates a std::map.
-        SpaceXLaunches(const json &j);
+        SpaceXLaunches(const nlohmann::json &j);
 
         //Display stored launch data
         void displayLaunchData();
@@ -42,7 +40,7 @@ namespace SpaceX
 
     public:
         //takes in parsed json data from api call and poplulates a std::map.
-        SpaceXLaunchesSmartPointer(const json &j);
+        SpaceXLaunchesSmartPointer(const nlohmann::json &j);
 
         //Display stored launch data
         void displayLaunchData();

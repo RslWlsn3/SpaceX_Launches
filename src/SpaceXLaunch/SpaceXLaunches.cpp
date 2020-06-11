@@ -9,7 +9,7 @@ namespace SpaceX
     }
 
     //takes in parsed json data from api call and poplulates a std::map.
-    SpaceXLaunches::SpaceXLaunches(const json &j)
+    SpaceXLaunches::SpaceXLaunches(const nlohmann::json &j)
     {
         if (j.is_array())
         {
@@ -58,7 +58,7 @@ namespace SpaceX
 
     //Takes in parsed json data from api call and poplulates a std::map.
     //Uses shared_ptr to create LaunchData obj on heap instead of new
-    SpaceXLaunchesSmartPointer::SpaceXLaunchesSmartPointer(const json &j)
+    SpaceXLaunchesSmartPointer::SpaceXLaunchesSmartPointer(const nlohmann::json &j)
     {
         if (j.is_array())
         {

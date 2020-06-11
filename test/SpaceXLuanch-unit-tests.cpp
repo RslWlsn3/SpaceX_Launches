@@ -3,7 +3,7 @@
 #include <string>
 #include <fstream>
 
-const json jsonTestData = json::object({{"mission_name", "Connor test"},
+const nlohmann::json jsonTestData = nlohmann::json::object({{"mission_name", "Connor test"},
                                         {"flight_number", 21},
                                         {"launch_year", "2020"},
                                         {"launch_date_local", "1/1/1"}});

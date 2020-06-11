@@ -9,7 +9,7 @@
 const char *UpcomingLaunchesCmd = "curl --location --request GET 'https://api.spacexdata.com/v3/launches/upcoming'";
 
 //perform api call and return results
-std::string exec(const char *cmd)
+static std::string exec(const char *cmd)
 {
     std::array<char, 128> buffer;
     std::string result;
