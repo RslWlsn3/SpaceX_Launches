@@ -9,7 +9,7 @@ namespace SpaceX
     }
 
     //takes in parsed json data from api call and poplulates a std::map.
-    SpaceXLaunches::SpaceXLaunches(const nlohmann::json &j)
+    SpaceXLaunchesOldStyle::SpaceXLaunchesOldStyle(const nlohmann::json &j)
     {
         if (j.is_array())
         {
@@ -33,7 +33,7 @@ namespace SpaceX
     }
 
     //Display stored launch data
-    void SpaceXLaunches::displayLaunchData()
+    void SpaceXLaunchesOldStyle::displayLaunchData()
     {
         for (std::map<std::string, LaunchData *>::iterator it = launchMap.begin(); it != launchMap.end(); it++)
         {
@@ -47,7 +47,7 @@ namespace SpaceX
     }
 
     //delete heap allocated LaunchData objs
-    SpaceXLaunches::~SpaceXLaunches()
+    SpaceXLaunchesOldStyle::~SpaceXLaunchesOldStyle()
     {
         for (std::map<std::string, LaunchData *>::iterator it = launchMap.begin(); it != launchMap.end(); it++)
         {

@@ -17,23 +17,31 @@ namespace SpaceX
         LaunchData(int fn, std::string yr, std::string ldl);
     };
 
-    class SpaceXLaunches
+    class SpaceXLauches
+    {
+    public:
+        SpaceXLauches() {}
+        virtual ~SpaceXLauches() {}
+        virtual void displayLaunchData() = 0;
+    };
+
+    class SpaceXLaunchesOldStyle : public SpaceXLauches
     {
     private:
         std::map<std::string, LaunchData *> launchMap;
 
     public:
         //takes in parsed json data from api call and poplulates a std::map.
-        SpaceXLaunches(const nlohmann::json &j);
+        SpaceXLaunchesOldStyle(const nlohmann::json &j);
 
         //Display stored launch data
         void displayLaunchData();
 
         //delete heap allocated LaunchData objs
-        ~SpaceXLaunches();
+        ~SpaceXLaunchesOldStyle();
     };
 
-    class SpaceXLaunchesSmartPointer
+    class SpaceXLaunchesSmartPointer : public SpaceXLauches
     {
     private:
         std::map<std::string, std::shared_ptr<LaunchData>> launchMapSmart;

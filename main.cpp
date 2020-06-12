@@ -28,8 +28,8 @@ static std::string exec(const char *cmd)
 int main()
 {
     std::string launch_json = exec(UpcomingLaunchesCmd);
-    auto j = json::parse(launch_json);
-    //SpaceX::SpaceXLaunches launches(j);
+    auto j = nlohmann::json::parse(launch_json);
+    //SpaceX::SpaceXLaunchesOldStyle launches(j);
     SpaceX::SpaceXLaunchesSmartPointer launches(j);
     launches.displayLaunchData();
 }

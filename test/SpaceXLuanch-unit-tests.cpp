@@ -37,7 +37,7 @@ TEST(SpaceXLaunch_unit_tests, connection)
 
 TEST(SpaceXLaunch_unit_tests, output)
 {
-    SpaceX::SpaceXLaunches launches(jsonTestData);
+    SpaceX::SpaceXLaunchesOldStyle launches(jsonTestData);
     testing::internal::CaptureStdout();
     launches.displayLaunchData();
     std::string output = testing::internal::GetCapturedStdout();
