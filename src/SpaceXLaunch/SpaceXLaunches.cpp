@@ -33,12 +33,12 @@ namespace SpaceX
     }
 
     //Display stored launch data
-    void SpaceXLaunchesOldStyle::displayLaunchData()
+    void SpaceXLaunchesOldStyle::displayLaunchData() const
     {
-        for (std::map<std::string, LaunchData *>::iterator it = launchMap.begin(); it != launchMap.end(); it++)
+        for (const auto& it : launchMap)
         {
-            std::cout << "mission_name: " << it->first << std::endl;
-            LaunchData *L = it->second;
+            std::cout << "mission_name: " << it.first << std::endl;
+            LaunchData *L = it.second;
             std::cout << "  -  flight_number: " << L->flight_number << std::endl;
             std::cout << "  -  launch_year: " << L->launch_year << std::endl;
             std::cout << "  -  launch_date_local: " << L->launch_date_local << std::endl;
@@ -82,12 +82,12 @@ namespace SpaceX
     }
 
     //Display stored launch data
-    void SpaceXLaunchesSmartPointer::displayLaunchData()
+    void SpaceXLaunchesSmartPointer::displayLaunchData() const
     {
-        for (std::map<std::string, std::shared_ptr<LaunchData>>::iterator it = launchMapSmart.begin(); it != launchMapSmart.end(); it++)
+        for (const auto& it : launchMapSmart)
         {
-            std::cout << "mission_name: " << it->first << std::endl;
-            std::shared_ptr<LaunchData> L = it->second;
+            std::cout << "mission_name: " << it.first << std::endl;
+            const std::shared_ptr<SpaceX::LaunchData> L = it.second;
             std::cout << "  -  flight_number: " << L->flight_number << std::endl;
             std::cout << "  -  launch_year: " << L->launch_year << std::endl;
             std::cout << "  -  launch_date_local: " << L->launch_date_local << std::endl;

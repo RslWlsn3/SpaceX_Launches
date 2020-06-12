@@ -22,7 +22,7 @@ namespace SpaceX
     public:
         SpaceXLauches() {}
         virtual ~SpaceXLauches() {}
-        virtual void displayLaunchData() = 0;
+        virtual void displayLaunchData() const = 0;
     };
 
     class SpaceXLaunchesOldStyle : public SpaceXLauches
@@ -35,7 +35,7 @@ namespace SpaceX
         SpaceXLaunchesOldStyle(const nlohmann::json &j);
 
         //Display stored launch data
-        void displayLaunchData();
+        void displayLaunchData() const;
 
         //delete heap allocated LaunchData objs
         ~SpaceXLaunchesOldStyle();
@@ -51,6 +51,6 @@ namespace SpaceX
         SpaceXLaunchesSmartPointer(const nlohmann::json &j);
 
         //Display stored launch data
-        void displayLaunchData();
+        void displayLaunchData() const;
     };
 } // namespace SpaceX

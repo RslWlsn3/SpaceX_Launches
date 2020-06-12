@@ -15,9 +15,6 @@
 
  - Iterate over the collection and output some basic information for each launch to std::cout
 
-## Steps to run
-You may need to git clone https://github.com/nlohmann/json.git and get rid of the existing json folder since it doesn't seem like bitbucket is handling the library correctly.  
-
 ## Example output
 mission_name: ANASIS-II
   -  flight_number: 105
