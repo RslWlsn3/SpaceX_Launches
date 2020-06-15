@@ -7,23 +7,27 @@ namespace SpaceX
     LaunchData::LaunchData(int fn, std::string yr, std::string ldl) : flight_number(fn), launch_year(yr), launch_date_local(ldl)
     {
     }
-
-    //takes in parsed json data from api call and poplulates a std::map.
-    SpaceXLaunchesOldStyle::SpaceXLaunchesOldStyle(const nlohmann::json &j)
+    
+    SpaceXLaunchesOldStyle::SpaceXLaunchesOldStyle(const nlohmann::json &jsn) : jsonData(jsn)
     {
-        if (j.is_array())
+        extractUsefullData();
+    }
+
+    void SpaceXLaunchesOldStyle::extractUsefullData()
+    {
+        if (jsonData.is_array())
         {
-            for (auto &element : j)
+            for (auto &element : jsonData)
             {
                 auto el1 = element["mission_name"];
                 LaunchData *ld = new LaunchData(element["flight_number"], element["launch_year"], element["launch_date_local"]);
-                launchMap[element["mission_name"]] = ld;
+                launchesMap[element["mission_name"]] = ld;
             }
         }
-        else if (j.is_object())
+        else if (jsonData.is_object())
         {
-            LaunchData *ld = new LaunchData(j.at("flight_number"), j.at("launch_year"), j.at("launch_date_local"));
-            launchMap[j.at("mission_name")] = ld;
+            LaunchData *ld = new LaunchData(jsonData.at("flight_number"), jsonData.at("launch_year"), jsonData.at("launch_date_local"));
+            launchesMap[jsonData.at("mission_name")] = ld;
         }
         else
         {
@@ -31,11 +35,10 @@ namespace SpaceX
             exit(EXIT_FAILURE);
         }
     }
-
-    //Display stored launch data
+  
     void SpaceXLaunchesOldStyle::displayLaunchData() const
     {
-        for (const auto& it : launchMap)
+        for (const auto &it : launchesMap)
         {
             std::cout << "mission_name: " << it.first << std::endl;
             LaunchData *L = it.second;
@@ -46,33 +49,35 @@ namespace SpaceX
         }
     }
 
-    //delete heap allocated LaunchData objs
     SpaceXLaunchesOldStyle::~SpaceXLaunchesOldStyle()
     {
-        for (std::map<std::string, LaunchData *>::iterator it = launchMap.begin(); it != launchMap.end(); it++)
+        for (std::map<std::string, LaunchData *>::iterator iter = launchesMap.begin(); iter != launchesMap.end(); iter++)
         {
-            LaunchData *L = it->second;
+            LaunchData *L = iter->second;
             delete L;
         }
     }
 
-    //Takes in parsed json data from api call and poplulates a std::map.
-    //Uses shared_ptr to create LaunchData obj on heap instead of new
-    SpaceXLaunchesSmartPointer::SpaceXLaunchesSmartPointer(const nlohmann::json &j)
+    SpaceXLaunchesSmartPointer::SpaceXLaunchesSmartPointer(const nlohmann::json &jsn) : jsonData(jsn)
     {
-        if (j.is_array())
+        extractUsefullData();
+    }
+
+    void SpaceXLaunchesSmartPointer::extractUsefullData()
+    {
+        if (jsonData.is_array())
         {
-            for (auto &element : j)
+            for (auto &element : jsonData)
             {
                 auto el1 = element["mission_name"];
                 std::shared_ptr<LaunchData> ld = std::make_shared<LaunchData>(element["flight_number"], element["launch_year"], element["launch_date_local"]);
                 launchMapSmart[element["mission_name"]] = ld;
             }
         }
-        else if (j.is_object())
+        else if (jsonData.is_object())
         {
-            std::shared_ptr<LaunchData> ld = std::make_shared<LaunchData>(j.at("flight_number"), j.at("launch_year"), j.at("launch_date_local"));
-            launchMapSmart[j.at("mission_name")] = ld;
+            std::shared_ptr<LaunchData> ld = std::make_shared<LaunchData>(jsonData.at("flight_number"), jsonData.at("launch_year"), jsonData.at("launch_date_local"));
+            launchMapSmart[jsonData.at("mission_name")] = ld;
         }
         else
         {
@@ -80,11 +85,10 @@ namespace SpaceX
             exit(EXIT_FAILURE);
         }
     }
-
-    //Display stored launch data
+    
     void SpaceXLaunchesSmartPointer::displayLaunchData() const
     {
-        for (const auto& it : launchMapSmart)
+        for (const auto &it : launchMapSmart)
         {
             std::cout << "mission_name: " << it.first << std::endl;
             const std::shared_ptr<SpaceX::LaunchData> L = it.second;
@@ -94,4 +98,4 @@ namespace SpaceX
             std::cout << "------------------------------\n";
         }
     }
-} 
+} // namespace SpaceX

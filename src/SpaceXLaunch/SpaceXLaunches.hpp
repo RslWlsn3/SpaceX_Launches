@@ -28,11 +28,15 @@ namespace SpaceX
     class SpaceXLaunchesOldStyle : public SpaceXLauches
     {
     private:
-        std::map<std::string, LaunchData *> launchMap;
+        const nlohmann::json jsonData;
+        std::map<std::string, LaunchData *> launchesMap;
 
     public:
         //takes in parsed json data from api call and poplulates a std::map.
         SpaceXLaunchesOldStyle(const nlohmann::json &j);
+
+        //extracts data that it used in displayLaunchData()
+        void extractUsefullData();
 
         //Display stored launch data
         void displayLaunchData() const;
@@ -45,10 +49,14 @@ namespace SpaceX
     {
     private:
         std::map<std::string, std::shared_ptr<LaunchData>> launchMapSmart;
+        const nlohmann::json jsonData;
 
     public:
         //takes in parsed json data from api call and poplulates a std::map.
         SpaceXLaunchesSmartPointer(const nlohmann::json &j);
+
+        //extracts data that it used in displayLaunchData()
+        void extractUsefullData();
 
         //Display stored launch data
         void displayLaunchData() const;
