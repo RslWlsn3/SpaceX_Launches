@@ -37,9 +37,9 @@ TEST(SpaceXLaunch_unit_tests, connection)
 
 TEST(SpaceXLaunch_unit_tests, output)
 {
-    SpaceX::SpaceXLaunchesOldStyle launches(jsonTestData);
+    spacex::SpaceXLaunchesOldStyle launches(jsonTestData);
     testing::internal::CaptureStdout();
-    launches.displayLaunchData();
+    launches.display();
     std::string output = testing::internal::GetCapturedStdout();
     std::string expectedOutput = "mission_name: Connor test\n  -  flight_number: 21\n  -  launch_year: 2020\n  -  launch_date_local: 1/1/1\n------------------------------\n";
 
@@ -48,9 +48,9 @@ TEST(SpaceXLaunch_unit_tests, output)
 
 TEST(SpaceXLaunch_unit_tests, outputSmart)
 {
-    SpaceX::SpaceXLaunchesSmartPointer launches(jsonTestData);
+    spacex::SpaceXLaunchesSmartPointer launches(jsonTestData);
     testing::internal::CaptureStdout();
-    launches.displayLaunchData();
+    launches.display();
     std::string output = testing::internal::GetCapturedStdout();
     std::string expectedOutput = "mission_name: Connor test\n  -  flight_number: 21\n  -  launch_year: 2020\n  -  launch_date_local: 1/1/1\n------------------------------\n";
 

@@ -7,9 +7,9 @@
 #include <memory>
 #include <stdlib.h>
 
-namespace SpaceX
+namespace spacex
 {
-    //Holds all usfull SpaceX launch data
+    //Holds all usfull spacex launch data
     struct LaunchData
     {
         int flight_number;
@@ -18,13 +18,36 @@ namespace SpaceX
         LaunchData(int fn, std::string yr, std::string ldl);
     };
 
-    //Interface 
+    //Base Class
     class SpaceXLauches
     {
     public:
         SpaceXLauches() {}
         virtual ~SpaceXLauches() {}
-        virtual void displayLaunchData() const = 0;
+        template <typename T>
+
+        //Display all launch data stored to console
+        void displayLaunchData(const T &t) const;
+
+        virtual void display() const = 0;
+    };
+
+    //Utilizes smart pointers for LaunchData objs
+    class SpaceXLaunchesSmartPointer : public SpaceXLauches
+    {
+    private:
+        std::map<std::string, std::shared_ptr<LaunchData>> launchMapSmartPointer;
+        const nlohmann::json jsonData;
+
+    public:
+        //takes in parsed json data from api call and poplulates a std::map.
+        SpaceXLaunchesSmartPointer(const nlohmann::json &j);
+
+        //extracts data that it used in displayLaunchData()
+        void extractUsefullData();
+
+        //Calls parent class displayLaunchData with map being used
+        void display() const;
     };
 
     //Utilizes new/delete to create LaunchData objs on heap
@@ -41,28 +64,10 @@ namespace SpaceX
         //extracts data that it used in displayLaunchData()
         void extractUsefullData();
 
-        //Display stored launch data
-        void displayLaunchData() const;
+        //Calls parent class displayLaunchData with map being used
+        void display() const;
 
         //delete heap allocated LaunchData objs
         ~SpaceXLaunchesOldStyle();
     };
-
-    //Utilizes smart pointers for LaunchData objs
-    class SpaceXLaunchesSmartPointer : public SpaceXLauches
-    {
-    private:
-        std::map<std::string, std::shared_ptr<LaunchData>> launchMapSmart;
-        const nlohmann::json jsonData;
-
-    public:
-        //takes in parsed json data from api call and poplulates a std::map.
-        SpaceXLaunchesSmartPointer(const nlohmann::json &j);
-
-        //extracts data that it used in displayLaunchData()
-        void extractUsefullData();
-
-        //Display stored launch data
-        void displayLaunchData() const;
-    };
-} // namespace SpaceX
+} // namespace spacex
