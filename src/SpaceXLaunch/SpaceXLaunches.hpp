@@ -9,6 +9,7 @@
 
 namespace SpaceX
 {
+    //Holds all usfull SpaceX launch data
     struct LaunchData
     {
         int flight_number;
@@ -17,6 +18,7 @@ namespace SpaceX
         LaunchData(int fn, std::string yr, std::string ldl);
     };
 
+    //Interface 
     class SpaceXLauches
     {
     public:
@@ -25,6 +27,7 @@ namespace SpaceX
         virtual void displayLaunchData() const = 0;
     };
 
+    //Utilizes new/delete to create LaunchData objs on heap
     class SpaceXLaunchesOldStyle : public SpaceXLauches
     {
     private:
@@ -45,6 +48,7 @@ namespace SpaceX
         ~SpaceXLaunchesOldStyle();
     };
 
+    //Utilizes smart pointers for LaunchData objs
     class SpaceXLaunchesSmartPointer : public SpaceXLauches
     {
     private:

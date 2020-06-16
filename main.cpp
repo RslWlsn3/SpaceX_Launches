@@ -6,7 +6,8 @@
 #include <array>
 #include "SpaceXLaunches.hpp"
 
-const char *UpcomingLaunchesGetRequest = "curl --location --request GET 'https://api.spacexdata.com/v3/launches/upcoming'";
+const char *UPCOMING_LAUNCHES_GET_REQUEST = "curl --location --request GET 'https://api.spacexdata.com/v3/launches/upcoming'";
+
 
 //perform api call and return results
 static std::string exec(const char *cmd)
@@ -27,7 +28,7 @@ static std::string exec(const char *cmd)
 
 int main()
 {
-    std::string launch_json = exec(UpcomingLaunchesGetRequest);
+    std::string launch_json = exec(UPCOMING_LAUNCHES_GET_REQUEST);
     auto parsedJsonData = nlohmann::json::parse(launch_json);    
     SpaceX::SpaceXLaunchesSmartPointer launches(parsedJsonData);
     launches.displayLaunchData();
