@@ -6,27 +6,27 @@
 #include <map>
 #include <memory>
 #include <stdlib.h>
+#include <typeinfo>
 
 namespace spacex
 {
     //Holds all usfull spacex launch data
-    struct LaunchData
+    struct LaunchData //private stucture in class? -put in SpaceXLauches
     {
         int flight_number;
         std::string launch_year;
         std::string launch_date_local;
-        LaunchData(int fn, std::string yr, std::string ldl);
+        LaunchData(int flightNum, std::string launchYear, std::string launchDateLocal); 
     };
 
     //Base Class
     class SpaceXLauches
     {
-    public:
-        SpaceXLauches() {}
-        virtual ~SpaceXLauches() {}
+    public:        
+        virtual ~SpaceXLauches() {} 
         template <typename T>
 
-        //Display all launch data stored to console
+        //Display all launch data stored to console, works with map containing smart pointer or normal pointer 
         void displayLaunchData(const T &t) const;
 
         virtual void display() const = 0;
@@ -43,11 +43,11 @@ namespace spacex
         //takes in parsed json data from api call and poplulates a std::map.
         SpaceXLaunchesSmartPointer(const nlohmann::json &j);
 
-        //extracts data that it used in displayLaunchData()
+        //extracts data that is used in displayLaunchData()
         void extractUsefullData();
 
         //Calls parent class displayLaunchData with map being used
-        void display() const;
+        void display() const override;
     };
 
     //Utilizes new/delete to create LaunchData objs on heap
@@ -61,11 +61,11 @@ namespace spacex
         //takes in parsed json data from api call and poplulates a std::map.
         SpaceXLaunchesOldStyle(const nlohmann::json &j);
 
-        //extracts data that it used in displayLaunchData()
+        //extracts data that is used in displayLaunchData()
         void extractUsefullData();
 
         //Calls parent class displayLaunchData with map being used
-        void display() const;
+        void display() const override;
 
         //delete heap allocated LaunchData objs
         ~SpaceXLaunchesOldStyle();

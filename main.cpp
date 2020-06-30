@@ -30,7 +30,6 @@ int main()
 {
     std::string launch_json = exec(UPCOMING_LAUNCHES_GET_REQUEST);
     auto parsedJsonData = nlohmann::json::parse(launch_json);    
-    spacex::SpaceXLaunchesSmartPointer launches(parsedJsonData);
-    //launches.displayLaunchData();
+    spacex::SpaceXLaunchesSmartPointer launches(parsedJsonData);   
     launches.display();
 }

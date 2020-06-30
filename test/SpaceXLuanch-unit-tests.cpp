@@ -56,3 +56,12 @@ TEST(SpaceXLaunch_unit_tests, outputSmart)
 
     ASSERT_EQ(output, expectedOutput);
 }
+
+// TEST(SpaceXLaunch_unit_tests, displayLaunchDataTest)
+// {
+//     std::map<std::string, int> testMap;    
+//     testMap.insert(std::make_pair("earth", 1));
+//     testMap.insert(std::make_pair("moon", 2));
+//     spacex::SpaceXLaunchesSmartPointer launches(jsonTestData);
+//     launches.displayLaunchData(testMap);     
+// }
